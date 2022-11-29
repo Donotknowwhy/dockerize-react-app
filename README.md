@@ -20,3 +20,6 @@ You may also see any lint errors in the console.
 Runs the app in the production mode.\
 Open [http://localhost:80](http://localhost:3000) to view it in your browser.
 
+After stop container, the next time run:
+
+### `docker start [YOUR_REACT_APP_CONTAINER]`
