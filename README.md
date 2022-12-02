@@ -1,3 +1,5 @@
+Dockerize react app + Docker Hub + AWS ECR
+
 # v1.0 Dockerize React App
 
 Reference [Dockerize React App](https://dev.to/karanpratapsingh/dockerize-your-react-app-4j2e).
@@ -56,7 +58,7 @@ Pull an image from docker hub and run local
 
 1. Create ECR repo
 
-(--View commands ERC in repo--) 
+(--View commands ECR in repo--) 
 
 2. Configure aws in local
 ### `aws configure`
