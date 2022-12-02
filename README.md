@@ -1,3 +1,4 @@
+v1.0
 # Dockerize React App
 
 Reference [Dockerize React App](https://dev.to/karanpratapsingh/dockerize-your-react-app-4j2e).
@@ -23,3 +24,20 @@ Open [http://localhost:80](http://localhost:3000) to view it in your browser.
 After stop container, the next time run:
 
 ### `docker start [YOUR_REACT_APP_CONTAINER]`
+
+v2.0
+# Push Image to docker hub
+
+1. Signed in hub.docker.com
+
+2. Create repo docker hub
+
+3. Build docker in local
+### `docker build .`
+
+4. Rename image
+### `docker tag [YOUR_REACT_APP_CONTAINER] <hub-user>/<repo-name>[:<tag>]`
+
+5. Push image
+
+### `docker push <hub-user>/<repo-name>[:<tag>]`
