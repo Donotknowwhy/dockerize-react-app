@@ -51,3 +51,24 @@ Pull an image from docker hub and run local
 7. run image as container
 
 ### `docker run -d -p 3000:3000 [YOUR_DOCKER_IMAGE]`
+
+# v3.0 Push Image to AWS ECR
+
+1. Create ECR repo
+
+(--View commands ERC in repo--) 
+
+2. Configure aws in local
+### `aws configure`
+
+3. Login ecr aws
+
+### `aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/e1p5h8o7`
+
+4. Rename image 
+
+### `docker tag react-app:latest public.ecr.aws/e1p5h8o7/react-app:latest`
+
+5. Push an image to aws ecr
+
+### `docker push public.ecr.aws/e1p5h8o7/react-app:latest`
