@@ -1,4 +1,4 @@
-Dockerize react app + Docker Hub + AWS ECR
+Dockerize react app + Docker Hub + AWS EC2 + AWS ECS
 
 # v1.0 Dockerize React App
 
@@ -74,3 +74,13 @@ Pull an image from docker hub and run local
 5. Push an image to aws ecr
 
 ### `docker push public.ecr.aws/e1p5h8o7/react-app:latest`
+
+# v4.0 Define task, create cluster and linked to ec2 instance
+
+Reference: https://www.youtube.com/watch?v=aSd1S-4jQ-Q
+
+## Note if you can't access
+
+1. Remove https from public IPV4 address 
+2. Open Security groups and add inbound rules: All traffic, any where
+3. Check config VPC
