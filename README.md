@@ -54,7 +54,7 @@ Pull an image from docker hub and run local
 
 ### `docker run -d -p 3000:3000 [YOUR_DOCKER_IMAGE]`
 
-# v3.0 Push Image to AWS ECR
+# v3.0 Push Image to AWS ECR (SSH instance ec2 in local or connect on ec2 console)
 
 1. Create ECR repo
 
