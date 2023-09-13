@@ -1,86 +1,89 @@
-Dockerize react app + Docker Hub + AWS EC2 + AWS ECS
+# Dockerize React App + Docker Hub + AWS EC2 + AWS ECS
 
-# v1.0 Dockerize React App
+## Version 1.0: Dockerize React App
 
-Reference [Dockerize React App](https://dev.to/karanpratapsingh/dockerize-your-react-app-4j2e).
+Reference: [Dockerize React App](https://dev.to/karanpratapsingh/dockerize-your-react-app-4j2e)
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
-### `docker-compose -f docker-compose.dev.yml up`
+#### `docker-compose -f docker-compose.dev.yml up`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This command runs the app in development mode.\
+Open [http://localhost:3000](http://localhost:3000) in your browser to view it.
 
-The page will reload when you make changes.\
+The page will automatically reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `docker-compose -f docker-compose.prod.yml build`
-### `docker run -p 80:80 --name react-app react-app-product`
+#### `docker-compose -f docker-compose.prod.yml build`
+#### `docker run -p 80:80 --name react-app react-app-product`
 
-Runs the app in the production mode.\
-Open [http://localhost:80](http://localhost:3000) to view it in your browser.
+To run the app in production mode, execute the above commands.\
+Open [http://localhost:80](http://localhost:3000) in your browser to view it.
 
-After stop container, the next time run:
+If you stop the container and want to run it again:
 
-### `docker start [YOUR_REACT_APP_CONTAINER]`
+#### `docker start [YOUR_REACT_APP_CONTAINER]`
 
+## Version 2.0: Push Image to Docker Hub
 
-# v2.0 Push Image to docker hub
+1. Sign in to [hub.docker.com](https://hub.docker.com)
 
-1. Signed in hub.docker.com
+2. Create a Docker Hub repository
 
-2. Create repo docker hub
+3. Build the Docker image locally
 
-3. Build docker in local
-### `docker build .`
+#### `docker build .`
 
-4. Rename image
-### `docker tag [YOUR_REACT_APP_CONTAINER] <hub-user>/<repo-name>[:<tag>]`
+4. Rename the image
 
-5. Push image
+#### `docker tag [YOUR_REACT_APP_CONTAINER] <hub-user>/<repo-name>[:<tag>]`
 
-### `docker push <hub-user>/<repo-name>[:<tag>]`
+5. Push the image
 
-## Additional
-Pull an image from docker hub and run local
+#### `docker push <hub-user>/<repo-name>[:<tag>]`
 
-6. pull image
+## Additional: Pull an Image from Docker Hub and Run Locally
 
-### `docker pull <hub-user>/<repo-name>[:<tag>]`
+6. Pull an image from Docker Hub
 
-7. run image as container
+#### `docker pull <hub-user>/<repo-name>[:<tag>]`
 
-### `docker run -d -p 3000:3000 [YOUR_DOCKER_IMAGE]`
+7. Run the image as a container
 
-# v3.0 Push Image to AWS ECR (SSH instance ec2 in local or connect on ec2 console)
+#### `docker run -d -p 3000:3000 [YOUR_DOCKER_IMAGE]`
 
-1. Create ECR repo
+## Version 3.0: Push Image to AWS ECR (SSH into a local EC2 instance or connect via the EC2 console)
 
-(--View commands ECR in repo--) 
+1. Create an Amazon Elastic Container Registry (ECR) repository
 
-2. Configure aws in local
-### `aws configure`
+(Note: View ECR commands in the repository)
 
-3. Login ecr aws
+2. Configure AWS locally
 
-### `aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/e1p5h8o7`
+#### `aws configure`
 
-4. Rename image 
+3. Log in to AWS ECR
 
-### `docker tag react-app:latest public.ecr.aws/e1p5h8o7/react-app:latest`
+#### `aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/e1p5h8o7`
 
-5. Push an image to aws ecr
+4. Rename the image
 
-### `docker push public.ecr.aws/e1p5h8o7/react-app:latest`
+#### `docker tag react-app:latest public.ecr.aws/e1p5h8o7/react-app:latest`
 
-# v4.0 Define task, create cluster and linked to ec2 instance
+5. Push the image to AWS ECR
 
-Reference: https://www.youtube.com/watch?v=aSd1S-4jQ-Q
+#### `docker push public.ecr.aws/e1p5h8o7/react-app:latest`
 
-## Note if you can't access
+## Version 4.0: Define Tasks, Create a Cluster, and Link to an EC2 Instance
 
-1. Remove https from public IPV4 address 
-2. Open Security groups and add inbound rules: All traffic, any where
-3. Check config VPC
+Reference: [YouTube Tutorial](https://www.youtube.com/watch?v=aSd1S-4jQ-Q)
+
+### Note: If you can't access
+
+1. Remove "https" from the public IPv4 address
+
+2. Open Security groups and add inbound rules: All traffic, anywhere
+
+3. Check VPC configuration
